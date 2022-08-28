@@ -31,8 +31,10 @@ var getCountryData = async (code) => {
         console.log(retData.advisory)  
         document.querySelector('.level').textContent = retData.advisory.message
         document.querySelector('.link').textContent = retData.advisory.source
-        document.querySelector('.score').textContent = retData.advisory.score        
+        document.querySelector('.score').textContent = retData.advisory.score              
     } 
+    var score = retData.advisory.score
+        console.log(score);  
 }
 
 //Store Function To Hold Returned Country
