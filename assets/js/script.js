@@ -32,7 +32,7 @@ var getCountryData = async (code) => {
         document.querySelector('.level').textContent = retData.advisory.message
         document.querySelector('.link').textContent = retData.advisory.source
         document.querySelector('.score').textContent = retData.advisory.score        
-    }
+    } 
 }
 
 //Store Function To Hold Returned Country
