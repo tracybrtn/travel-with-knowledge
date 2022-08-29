@@ -6,23 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Global Travel Advisory</title>
     <link rel="stylesheet" href="./assets/css/style.css"/>
+    <!--are these two links the same?-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>Global Travel Advisory</header>
+    <header>
+      <h1>Travel Advisory</h1> 
+    </header>
     <main>
-      <section>
-        <h2>Please Enter Country</h2>
-      </section>
-      <section>
+      <section class="travel-advisory">
+        <div class="country-info">
+          <h2>Please Enter Country</h2>
+          <div class="main-form">
         <!-- <form> -->
-            <input type="text" id=inputCountry placeholder="Enter Country" name="Country">
-            <button id="searchBtn">Search</button>
+            <input type="text" id=inputCountry placeholder="Enter Country" name="Country" class="form-input">
+            <button id="searchBtn" class="button">Search</button>
         <!-- </form> -->
-      </section>
-      <section>
-        <div id="returnLevel" class="level">Advisory Level</div>
-        <div id="returnLink" class="link">More Info Link</div>
-        <div id="returnScore" class="score">Color Status</div>
+          </div>
+          <div class="main-returns">      
+            <div id="returnLevel" class="level">Advisory Level</div>
+            <div id="returnLink" class="link">More Info Link</div>
+            <div id="returnScore" class="score">Color Status</div>
+          </div>
+      </div>
       </section>
     
     </main>
