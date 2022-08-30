@@ -1,4 +1,5 @@
 
+var searchLocations = []
 
 //API Call to get country code
 var getCountryCode = async (country) => {
@@ -13,7 +14,7 @@ var getCountryCode = async (country) => {
         console.log(code);
         console.log(retCountry); //Trying to log to localStorage
         getCountryData(code);
-        storeCountry(retCountry);      
+        storeCountry(retCountry)     
     } else {
         alert('Please enter a valid country');  
     }
@@ -40,37 +41,42 @@ var getCountryData = async (code) => {
 //Get Stored Country (countryHistory)
 var storedCountry = document.getElementById('storedCountry')
 var getHistory = () => {
-   // var storage = JSON.parse(localStorage.getItem())
-    // storedCountry.textContent = ''
-    // if (storage === null) {
-       //  storedCountry.textContent = 'Previous Searched Countries'
-       //  return
-    // }
+//    var storage = JSON.parse(localStorage.getItem())
+//    storedCountry.textContent = ''
+//    if (storage === null) {
+//    storedCountry.textContent = 'Previous Searched Countries'
+//      return
+//   }
+
+    
 
     for(var i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i)
         let value = localStorage.getItem(key)
-        let location = JSON.parse(value)
+        let location = JSON.parse(value)     
+        //if (searchLocations.includes(location)) {      AUTOMATILY OCCURRING
+           // return
+        
+        
         var historyBtn = document.createElement('button')
-            
         historyBtn.textContent = location
         historyBtn.classList.add('history-btn')
         storedCountry.append(historyBtn)
+        console.log(searchLocations)
 
         historyBtn.addEventListener('click', (e) => {
             getCountryCode(location)
             console.log(getCountryCode)
         })
     }
-}
 
+}
 getHistory()
 
 //Store Function To Hold Returned Country
 var storeCountry = (retCountry) => {
-    var storage = []
-    storage.push(retCountry)
-    localStorage.setItem(retCountry, JSON.stringify(storage))
+    searchLocations.push(retCountry)
+    localStorage.setItem(retCountry, JSON.stringify(retCountry))
     getHistory()
     }
 
@@ -85,3 +91,12 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     getCountryCode(country);
     //storeCountry(retCounty);
 });
+
+if (localStorage.length > 0) {
+    for(var i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let value = localStorage.getItem(key)
+        let location = JSON.parse(value)
+        searchLocations.push(location)
+    }
+}
