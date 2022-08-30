@@ -1,20 +1,17 @@
 
-var searchLocations = []
-
 //API Call to get country code
 var getCountryCode = async (country) => {
     var url =`https://restcountries.com/v3.1/name/${country}`;
     var response = await fetch(url);
-    var codeData = await response.json();
-    console.log(codeData);
+    var data = await response.json();
+    console.log(data);
 
-    if (codeData.length > 0) {
-        var code = codeData[0].cca2;
-        var retCountry = codeData[0].name.common
+    if (data.length > 0) {
+        var code = data[0].cca2;
+        var retCountry = data[0].name.common
         console.log(code);
         console.log(retCountry); //Trying to log to localStorage
-        getCountryData(code);
-        storeCountry(retCountry)     
+        getCountryData(code);        
     } else {
         alert('Please enter a valid country');  
     }
@@ -24,61 +21,68 @@ var getCountryCode = async (country) => {
 var getCountryData = async (code) => {
     url=`https://www.travel-advisory.info/api?countrycode=${code}`;
     var response = await fetch(url);
-    var countryData = await response.json();
-    console.log(countryData);
-    
-    if (countryData.data) {     
-        var retData = countryData.data[code]; //created ability for variable within API returned data (i.e. AU)
+    var data = await response.json();
+        
+    if (data) {     
+        var retData = data.data[code]; //created ability for variable within API returned data (i.e. AU)
         console.log(retData.advisory)  
         document.querySelector('.level').textContent = retData.advisory.message
-        document.querySelector('.link').textContent = retData.advisory.source
-        document.querySelector('.score').textContent = retData.advisory.score              
+        document.querySelector('.link').textContent = retData.advisory.source  
+        console.log(retData.advisory.message)
+        console.log(retData.advisory.source)       
+        //document.querySelector('.score').textContent = retData.advisory.score              
     } 
-    var score = retData.advisory.score
-        console.log(score);  
-}
+    var score = retData.advisory.score  //Provide Status level and Code
+        console.log(score);
+        if (score => 4)  {
+            document.querySelector('.score').textContent = "Level 4 - Red"
+        }
+        else if (score => 3) {
+            document.querySelector('.score').textContent = "Level 3 - Orange" 
+        }
+        else if (score => 2) {
+            document.querySelector('.score').textContent = "Level 2 - Yellow" 
+        }
+        else {
+            document.querySelector('.score').textContent = "Level 1 - Blue"  
+        } 
+    }         
 
 //Get Stored Country (countryHistory)
 var storedCountry = document.getElementById('storedCountry')
 var getHistory = () => {
-//    var storage = JSON.parse(localStorage.getItem())
-//    storedCountry.textContent = ''
-//    if (storage === null) {
-//    storedCountry.textContent = 'Previous Searched Countries'
-//      return
-//   }
-
-    
-
-    for(var i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i)
-        let value = localStorage.getItem(key)
-        let location = JSON.parse(value)     
-        //if (searchLocations.includes(location)) {      AUTOMATILY OCCURRING
-           // return
-        
-        
+    var storage = JSON.parse(localStorage.getItem('countryHistory'))
+    storedCountry.textContent = ''
+    if (storage === null) {
+        storedCountry.textContent = 'Previous Searched Countries'
+        return
+    }
+ 
+    for(var i = 0; i < storage.length; i++) {
         var historyBtn = document.createElement('button')
-        historyBtn.textContent = location
+        historyBtn.textContent = storage[i]
         historyBtn.classList.add('history-btn')
         storedCountry.append(historyBtn)
-        console.log(searchLocations)
 
         historyBtn.addEventListener('click', (e) => {
-            getCountryCode(location)
-            console.log(getCountryCode)
+            getCountryCode(e.target.textContent)
         })
     }
-
 }
-getHistory()
+        
+ getHistory()
 
 //Store Function To Hold Returned Country
-var storeCountry = (retCountry) => {
-    searchLocations.push(retCountry)
-    localStorage.setItem(retCountry, JSON.stringify(retCountry))
-    getHistory()
+var storeCountry = (country) => {
+    var storage = JSON.parse(localStorage.getItem('countryHistory'))
+    if (storage === null) {
+        storage = []
     }
+
+    storage.push(country)
+    localStorage.setItem('countryHistory', JSON.stringify(storage))
+    getHistory()
+}
 
 //JS add event listener to button
 document.getElementById("searchBtn").addEventListener("click", function () {
@@ -89,14 +93,7 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     }
     console.log(country);    
     getCountryCode(country);
-    //storeCountry(retCounty);
+    storeCountry(country);
 });
 
-if (localStorage.length > 0) {
-    for(var i = 0; i < localStorage.length; i++) {
-        let key = localStorage.key(i)
-        let value = localStorage.getItem(key)
-        let location = JSON.parse(value)
-        searchLocations.push(location)
-    }
-}
+
