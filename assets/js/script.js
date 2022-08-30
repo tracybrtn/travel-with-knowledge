@@ -1,3 +1,4 @@
+var modal = document.getElementById("alertModal");
 
 //API Call to get country code
 var getCountryCode = async (country) => {
@@ -8,7 +9,7 @@ var getCountryCode = async (country) => {
 
     if (data.length > 0) {
         var code = data[0].cca2;
-        var retCountry = data[0].name.common
+        var retCountry = data[0].name.common //trying to log to local storage
         console.log(code);
         console.log(retCountry); //Trying to log to localStorage
         getCountryData(code);        
@@ -74,6 +75,7 @@ var getHistory = () => {
 
 //Store Function To Hold Returned Country
 var storeCountry = (country) => {
+    console.log(country)
     var storage = JSON.parse(localStorage.getItem('countryHistory'))
     if (storage === null) {
         storage = []
@@ -88,12 +90,15 @@ var storeCountry = (country) => {
 document.getElementById("searchBtn").addEventListener("click", function () {
     var country = document.getElementById('inputCountry').value;
     if (country === '') {
-        alert('Must search for Country')
+        modal.style.display ="block"
+        }
+        span.onclick = function(event) {
+            modal.style.display = "none"
+        }
         return
     }
-    console.log(country);    
-    getCountryCode(country);
-    storeCountry(country);
+    
+getCountryCode(country);
+storeCountry(country);
 });
-
 
