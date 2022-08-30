@@ -15,7 +15,7 @@ var getCountryCode = async (country) => {
         getCountryData(code);
         storeCountry(retCountry);      
     } else {
-        alert('Please enter a valid city and state');  
+        alert('Please enter a valid country');  
     }
 }
 
