@@ -37,21 +37,42 @@ var getCountryData = async (code) => {
         console.log(score);  
 }
 
+//Get Stored Country (countryHistory)
+var storedCountry = document.getElementById('storedCountry')
+var getHistory = () => {
+   // var storage = JSON.parse(localStorage.getItem())
+    // storedCountry.textContent = ''
+    // if (storage === null) {
+       //  storedCountry.textContent = 'Previous Searched Countries'
+       //  return
+    // }
+
+    for(var i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i)
+        let value = localStorage.getItem(key)
+        let location = JSON.parse(value)
+        var historyBtn = document.createElement('button')
+            
+        historyBtn.textContent = location
+        historyBtn.classList.add('history-btn')
+        storedCountry.append(historyBtn)
+
+        historyBtn.addEventListener('click', (e) => {
+            getCountryCode(location)
+            console.log(getCountryCode)
+        })
+    }
+}
+
+getHistory()
+
 //Store Function To Hold Returned Country
 var storeCountry = (retCountry) => {
     var storage = []
     storage.push(retCountry)
-    localStorage.setItem('countryHistory', JSON.stringify(storage))
+    localStorage.setItem(retCountry, JSON.stringify(storage))
+    getHistory()
     }
-
-//Get Stored Country (countryHistory)
-
-
-
-
-
-
-
 
 //JS add event listener to button
 document.getElementById("searchBtn").addEventListener("click", function () {
@@ -60,7 +81,7 @@ document.getElementById("searchBtn").addEventListener("click", function () {
         alert('Must search for Country')
         return
     }
-    console.log(country);
+    console.log(country);    
     getCountryCode(country);
     //storeCountry(retCounty);
 });
