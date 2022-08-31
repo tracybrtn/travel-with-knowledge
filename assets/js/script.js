@@ -108,6 +108,3 @@ document.getElementById("searchBtn").addEventListener("click", function () {
     
     document.getElementById('inputCountry').value = ''
 })
-
-
-
