@@ -51,6 +51,10 @@ header h1:hover {
     align-items: ;
 }
 
+.blue {
+    color: blue;
+}
+
 
 .main-form {
     display: flex;

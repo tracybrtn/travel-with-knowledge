@@ -34,13 +34,13 @@ var getCountryData = async (code) => {
     } 
     var score = retData.advisory.score  //Provide Status level and Code
         console.log(score);
-        if (score => 4)  {
+        if (score >= 4)  {
             document.querySelector('.score').textContent = "Level 4 - Red"
         }
-        else if (score => 3) {
+        else if (score >= 3) {
             document.querySelector('.score').textContent = "Level 3 - Orange" 
         }
-        else if (score => 2) {
+        else if (score >= 2) {
             document.querySelector('.score').textContent = "Level 2 - Yellow" 
         }
         else {
