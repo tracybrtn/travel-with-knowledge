@@ -1,3 +1,5 @@
+var modal = document.getElementById("alertModal");
+var close = document.getElementById("close");
 
 //API Call to get country code
 var getCountryCode = async (country) => {
@@ -8,12 +10,17 @@ var getCountryCode = async (country) => {
 
     if (data.length > 0) {
         var code = data[0].cca2;
-        var retCountry = data[0].name.common
+        var retCountry = data[0].name.common //trying to log to local storage
+        // deleting this line of data because it causes storage to log in countries again storeCountry(retCountry);
         console.log(code);
         console.log(retCountry); //Trying to log to localStorage
         getCountryData(code);        
     } else {
-        alert('Please enter a valid country');  
+        modal.style.display = "block"
+        close.onclick = function () {
+            modal.style.display = "none"
+        }
+        //alert('Please enter a valid country'); 
     }
 }
 
@@ -32,6 +39,7 @@ var getCountryData = async (code) => {
         console.log(retData.advisory.source)       
         //document.querySelector('.score').textContent = retData.advisory.score              
     } 
+   
     var score = retData.advisory.score  //Provide Status level and Code
         console.log(score);
         if (score >= 4)  {
@@ -92,12 +100,12 @@ var storeCountry = (country) => {
 document.getElementById("searchBtn").addEventListener("click", function () {
     var country = document.getElementById('inputCountry').value;
     if (country === '') {
-        alert('Must search for Country')
+        
         return
-    }
-    console.log(country);    
+    };    
     getCountryCode(country);
-    storeCountry(country);
+
+    document.getElementById('inputCountry').value = ''
 });
 
 
