@@ -23,7 +23,7 @@ PHASE 1
 https://tracybrtn.github.io/travel-with-knowledge/
 
 ## Contribution
-Tracy Burton Bravo @tracybrtn
-Scott Rinaberger @rinaberger
-Mamadou Yaya Diallo @mamadou1991
-Kaine Weathersppon @kainew5843
+- Tracy Burton Bravo @tracybrtn
+- Scott Rinaberger @rinaberger
+- Mamadou Yaya Diallo @mamadou1991
+- Kaine Weathersppon @kainew5843
