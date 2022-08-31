@@ -1,115 +1,39 @@
-:root {
-    --primary-color: black;
-    --secondary-color: white;
-    --tertiary-color: gray;
-    background-image: url(../images/hero-world-map.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: 80%;
-    font-size: 16px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Mono', monospace;
-}
-
-.container {
-    height: 100vh;
-}
-
-header {
-    text-align: center;
-    position: sticky;
-    position: -webkit-sticky;
+body{background-color: aqua};
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
     top: 0;
-    height: 20vh;
-}
-
-header h1 {
-    font-size: 2em;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
     font-weight: bold;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    padding-top: 30px;
-}
-
-header h1:hover {
-    text-shadow: 0 0 20px rgba(230, 10, 10, 1);
-    font-weight: 900;
-}
-
-
-.travel-advisory {
-    text-align: center;
-    height: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: ;
-}
-
-
-.main-form {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-self: start;
-    margin: 20px;
-    row-gap: 7px;
-}
-
-.country-info h2 {
-    font-size: 3em;
-}
-
-.country-info h2:hover {
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    font-weight: 900;
-}
-
-
-.main-form button {
-    color: var(--secondary-color);
-    background-color: var(--tertiary-color);
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 10px;
-}
-.main-form button:hover {
-    background-color: var(--primary-color);
-}
-
-.main-form input {
-    border: 1px solid var(--primary-color);
-    padding: 10px 20px;
-    font-size: 16px;
-    color: var(--primary-color);
-    border-radius: 10px;
-    margin-right: 10px;
-}
-
-.main-form input:hover {
-    border-color: var(--tertiary-color)
-}
-
-.main-returns {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-footer {
-    text-align: center;
-    height: 10vh;
-}
-
-p:hover {
-    text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
-    color: var(--primary-color);
-    font-weight: 900;
-}
-
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+ 
