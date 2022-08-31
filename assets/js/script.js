@@ -45,15 +45,23 @@ var getCountryData = async (code) => {
 
     if (score >= 4) {
         document.querySelector('.score').textContent = "Level 4 - Red"
+        document.querySelector('.score').style.color = 'red';
+        document.querySelector('.score').style.fontWeight = 'bold';
     }
     else if (score >= 3) {
         document.querySelector('.score').textContent = "Level 3 - Orange"
+        document.querySelector('.score').style.color = 'orange';
+        document.querySelector('.score').style.fontWeight = 'bold';
     }
     else if (score >= 2) {
         document.querySelector('.score').textContent = "Level 2 - Yellow"
+        document.querySelector('.score').style.color = 'yellow';
+        document.querySelector('.score').style.fontWeight = 'bold';
     }
     else {
         document.querySelector('.score').textContent = "Level 1 - Blue"
+        document.querySelector('.score').style.color = 'blue';
+        document.querySelector('.score').style.fontWeight = 'bold';
     }
 
 }
