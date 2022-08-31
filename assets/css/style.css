@@ -6,7 +6,9 @@
     background-size: cover;
     background-attachment: fixed;
     background-position: 80%;
-    font-size: 16px;
+    font-size: 10px;
+    font-weight: 900;
+    font-size: calc(1em + .5vw);
 }
 
 * {
@@ -20,24 +22,23 @@
     height: 100vh;
 }
 
+
 header {
     text-align: center;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
-    height: 20vh;
+    max-height: 20vh;
 }
 
 header h1 {
-    font-size: 2em;
-    font-weight: bold;
+    font-size: calc(1.5em + 1vw);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     padding-top: 30px;
 }
 
 header h1:hover {
     text-shadow: 0 0 20px rgba(230, 10, 10, 1);
-    font-weight: 900;
 }
 
 
@@ -51,11 +52,6 @@ header h1:hover {
     align-items: ;
 }
 
-.blue {
-    color: blue;
-}
-
-
 .main-form {
     display: flex;
     justify-content: center;
@@ -66,7 +62,8 @@ header h1:hover {
 }
 
 .country-info h2 {
-    font-size: 3em;
+    font-size: calc(1.7em + 1vw);
+    font-weight: 100;
 }
 
 .country-info h2:hover {
@@ -108,7 +105,7 @@ header h1:hover {
 
 footer {
     text-align: center;
-    height: 10vh;
+    max-height: 10vh;
 }
 
 p:hover {
@@ -117,3 +114,9 @@ p:hover {
     font-weight: 900;
 }
 
+@media screen and (min-width: 480px) {
+    .country-info h2 {
+        font-size: calc(2.5em + 1vw);
+    }
+    
+}
