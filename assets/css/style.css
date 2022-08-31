@@ -70,6 +70,17 @@ header h1:hover {
     font-weight: 900;
 }
 
+.stored_country {
+
+}
+
+.history-btn {
+    background-color: orange;
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+
+}
 
 .main-form button {
     color: var(--secondary-color);
