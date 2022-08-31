@@ -1,5 +1,5 @@
 # travel-with-knowledge
-![Final version of website](https://github.com/tracybrtn/portfolio/blob/main/assets/images/deployed-screenshot.png)
+![Final version of website](https://github.com/tracybrtn/travel-with-knowledge/blob/main/assets/images/deployed-screenshot.png)
 
 ## Purpose
 The main goal for this app is helping travelers make the most out of their journeys - from safety to entertainment. The application is designed to be able to serve as a consolidator of information on multiple devices using responsiveness technology and third-party API interfaces.
