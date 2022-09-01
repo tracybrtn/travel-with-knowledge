@@ -34,7 +34,7 @@ var getCountryData = async (code) => {
         var retData = data.data[code]; //created ability for variable within API returned data (i.e. AU)
         console.log(retData.advisory)
         document.querySelector('.level').textContent = retData.advisory.message
-        document.querySelector('.link').textContent = retData.advisory.source
+        document.querySelector('.link').textContent = "For More Information: " + retData.advisory.source
         console.log(retData.advisory.message)
         console.log(retData.advisory.source)
         //document.querySelector('.score').textContent = retData.advisory.score              
