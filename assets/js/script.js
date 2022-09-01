@@ -43,19 +43,19 @@ var getCountryData = async (code) => {
     var score = retData.advisory.score  //Provide Status level and Code
         console.log(score);
         if (score >= 4)  {
-            document.querySelector('.score').textContent = "Level 4",
+            document.querySelector('.score').textContent = "Level 4 - RED",
             document.querySelector('.score').style.color = "red";
         }
         else if (score >= 3) {
-            document.querySelector('.score').textContent = "Level 3",
+            document.querySelector('.score').textContent = "Level 3 - ORANGE",
             document.querySelector('.score').style.color = "orange";
         }
         else if (score >= 2) {
-            document.querySelector('.score').textContent = "Level 2",
+            document.querySelector('.score').textContent = "Level 2 - YELLOW",
             document.querySelector('.score').style.color ="yellow";
         }
         else {
-            document.querySelector('.score').textContent = "Level 1"
+            document.querySelector('.score').textContent = "Level 1 - BLUE"
             document.querySelector('.score').style.color = "blue";
         } 
     }         
