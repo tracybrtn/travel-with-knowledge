@@ -172,9 +172,21 @@ p:hover {
     font-weight: 700;
   }
 
+  .history-btn {
+    color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 10px;
+}
+.history-btn:hover {
+    background-color: var(--primary-color);
+}
+
 @media screen and (min-width: 480px) {
     .country-info h2 {
         font-size: calc(2.5em + 1vw);
-    }
-    
+    }    
 }
